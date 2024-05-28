@@ -1,0 +1,20 @@
+{
+  "name": "jelly_rat_v0",
+  "version": "1.0.0",
+  "description": "a minesweeper clone by Pat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pat",
+  "license": "MIT",
+  "keywords": [
+    "minesweeper",
+    "game",
+    "prototype",
+    "kids"
+  ],
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

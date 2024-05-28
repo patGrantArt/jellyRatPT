@@ -1,0 +1,158 @@
+:root {
+	--graphicsSheet: url("sprite_sheet1.png");
+    --scale: 4;
+}
+@font-face {
+    font-family: "pressStart2P";
+    src:
+      url("pressstart2p-regular-webfont.woff") format("woff"),
+      url("pressstart2p-regular-webfont.woff2") format("woff2"),
+  }
+
+
+body{
+    display: flex;
+    font-family: "pressStart2P", sans-serif;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    background-color: #f9e4b3;
+    /* border: 2px solid red; */
+}
+#columnContainer {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+.graphic {
+    background-image: var(--graphicsSheet);
+    background-repeat: no-repeat;
+    background-size: calc(var(--scale)*112px);
+    image-rendering: pixelated;
+}
+
+.score {
+    background-color: #e48800;
+    width: 100px;
+    height: 50px;
+    top: 100px;
+    left: 50px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 5;
+}
+
+#mainBox {
+    position: relative;
+    height: 90vh;
+    
+
+}
+.box {
+    position: absolute;
+    /* background-color: rgb(237, 183, 66); */
+    cursor: pointer;
+    /* border: 2px solid #e89328; */
+    width: calc(var(--scale)*16px);
+    height: calc(var(--scale)*16px);
+}
+.trap {
+    /* background-color: rgb(243, 247, 3); */
+    background-position-x: calc(var(--scale)*16*-4px);
+    background-position-y: calc(var(--scale)*16*-2px);
+    
+}
+.jelly0{
+    opacity: 0;
+}
+.jelly1{
+    /* background-color: rgb(66, 237, 180);  */
+    background-position-x: calc(var(--scale)*16*0px);
+}
+.jelly2{
+    /* background-color: rgb(66, 183, 237);  */
+    background-position-x: calc(var(--scale)*16*-1px);
+}
+.jelly3{
+    /* background-color: rgb(66, 69, 237); */
+    background-position-x: calc(var(--scale)*16*-2px);
+}
+.jelly4{
+    /* background-color: rgb(171, 66, 237); */
+    background-position-x: calc(var(--scale)*16*-3px);
+}
+.jelly5{
+    /* background-color: rgb(203, 66, 237); */
+    background-position-x: calc(var(--scale)*16*-4px);
+}
+.jelly6{
+    /* background-color: rgb(237, 174, 66); */
+    background-position-x: calc(var(--scale)*16*-5px);
+}
+.jelly7{
+    /* background-color: rgb(98, 4, 73); */
+    background-position-x: calc(var(--scale)*16*-6px);
+}
+
+.blocked{
+    background-color: rgb(0, 0, 0);
+
+}
+
+.box:hover {
+    background-color: rgb(205, 149, 70);
+}
+.boxPara {
+    font-size: 1em;
+}
+.cover{
+    position: absolute;
+    opacity: 1;
+    z-index: 4;
+    transition: opacity 100ms ease-in-out;
+    background-position-x: calc(var(--scale)*-96px);
+    background-position-y: calc(var(--scale)*-48px);
+}
+.defused{
+    position: absolute;
+    opacity: 1;
+    z-index: 2;
+    transition: opacity 100ms ease-in-out;
+    background-position-x: calc(var(--scale)*-96px);
+    background-position-y: calc(var(--scale)*-32px);
+}
+.see {
+    opacity: 1;
+}
+
+.cantSee {
+    opacity: 0;
+
+}
+#rat{
+    position: relative;
+    z-index: 3;
+
+    
+}
+.timerBox {
+    position: fixed;
+    z-index: 5;
+    top: 50px;
+    left: 50px;
+    background-color: rgb(46, 45, 45);
+    width: 220px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 5px; 
+}
+.timerBox p {
+    color: #5bf600;
+    margin: 0 0 0 0;
+}

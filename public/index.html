@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Jelly Rat</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<!-- <link href="http://fonts.cdnfonts.com/css/press-start-2p" rel="stylesheet">  -->
+<script src="globals.js"></script>
+<script src="timerModule.js"></script>
+<script src="graphicsData.js"></script>
+<script src="audioModule.js"></script>
+<script src="listen.js"></script>
+<script src="ui.js"></script>
+<script src="modalModule.js"></script>
+<script src="scoringModule.js"></script>
+<script src="gameLoop.js"></script>
+<script src="init.js"></script>
+
+<body>
+    <div id="columnContainer">
+        <div id="mainBox">
+        </div>
+    </div>
+    <div class = "timerBox">
+        <p>TIME: <span id = "timerDisplay">00:00</span></p>
+        <p>LIVE TRAPS: <span id="trapsLeft">50</span></p>
+        <p>SCORE: <span id="scoreDisplay">0</span></p>
+    </div>
+
+</body>
+
+
+<footer>
+    <script src="devTools.js"></script>
+    <script>document.onload = letsGo()</script>    
+</footer>
+
+    
+
+
+</html>

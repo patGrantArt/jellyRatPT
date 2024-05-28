@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            width: 30px;
+            height: 30px;
+            margin: 1px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Minesweeper</title>
+</head>
+<body>
+    <script>
+        const size = 10;
+        const mineCount = 10;
+        let board = [];
+
+        function initializeBoard() {
+            for (let i = 0; i < size; i++) {
+                board[i] = new Array(size).fill(0);
+            }
+
+            // Place mines randomly
+            for (let i = 0; i < mineCount; i++) {
+                let x, y;
+                do {
+                    x = Math.floor(Math.random() * size);
+                    y = Math.floor(Math.random() * size);
+                } while (board[x][y] === 'M');
+
+                board[x][y] = 'M';
+            }
+        }
+
+        function reveal(x, y) {
+            if (board[x][y] === 'M') {
+                alert('Game Over! You hit a mine.');
+                location.reload();
+            } else {
+                const count = countAdjacentMines(x, y);
+                board[x][y] = count;
+
+                if (count === 0) {
+                    for (let i = x - 1; i <= x + 1; i++) {
+                        for (let j = y - 1; j <= y + 1; j++) {
+                            if (i >= 0 && i < size && j >= 0 && j < size && board[i][j] === 0) {
+                                reveal(i, j);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function countAdjacentMines(x, y) {
+            let count = 0;
+            for (let i = x - 1; i <= x + 1; i++) {
+                for (let j = y - 1; j <= y + 1; j++) {
+                    if (i >= 0 && i < size && j >= 0 && j < size && board[i][j] === 'M') {
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+
+        function renderBoard() {
+            const container = document.body;
+            container.innerHTML = '';
+
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    const button = document.createElement('button');
+                    button.textContent = board[i][j];
+                    button.addEventListener('click', () => reveal(i, j));
+                    container.appendChild(button);
+                }
+                container.appendChild(document.createElement('br'));
+            }
+        }
+
+        function startGame() {
+            initializeBoard();
+            renderBoard();
+        }
+
+        startGame();
+    </script>
+</body>
+</html>
